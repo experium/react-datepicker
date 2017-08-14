@@ -2,6 +2,10 @@
   "name": "test-react-input-pickers",
   "version": "1.0.0",
   "description": "Pickers with masked inputs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deadlift3008/test-react-input-pickers.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
