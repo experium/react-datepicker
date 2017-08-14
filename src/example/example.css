@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.ant-calendar-picker-input {
+    visibility: hidden;
+    width: 231px;
+}
+
+.ant-calendar-picker-icon {
+    margin-top: -42px;
+    cursor: pointer;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    right: 8px;
+    top: 50%;
+    line-height: 14px;
+    font-size: 14px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ant-calendar-input-wrap {
+    display: none;
+}
+
+.date-picker {
+    position: relative;
+    width: 231px;
+}
+
+.date-picker .date-calendar {
+    position: absolute;
+    left: 0;
+    top: 36px;
+    width: 231px;
+}
+
+.date-picker .date-input-filled:hover .ant-select-selection__clear {
+    opacity: 1;
+}
+
+.date-picker .ant-select-selection__clear {
+    position: absolute;
+    right: 30px;
+    top: 19px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.ant-time-picker-panel-input-wrap {
+    display: none;
+}
+
+.time-picker {
+    position: relative;
+    width: 112px;
+}
+
+.time-picker .ant-time-picker-input {
+    visibility: hidden;
+    width: 112px;
+}
+
+.time-picker .ant-time-picker {
+    height: 1px;
+}
+
+.time-picker .ant-time-picker-icon {
+    cursor: pointer;
+    top: -18px;
+    right: 5px;
+}
+
+.time-picker .time-options {
+    position: absolute;
+}
+
+.time-picker .ant-select-selection__clear {
+    position: absolute;
+    top: 18px;
+    right: 35px;
+    cursor: auto;
+}
+
+.time-picker .time-input-filled:hover .ant-select-selection__clear {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.ant-input {
+    border: 1px solid #dadfea;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    border-radius: 0;
+    position: relative;
+    display: inline-block;
+    padding: 4px 7px;
+    width: 100%;
+    height: 36px;
+    cursor: text;
+    font-size: 14px;
+    color: #8c97b2;
+    background-color: #fff;
+    background-image: none;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.ant-input:hover {
+    border-color: #49a9ee;
+}
