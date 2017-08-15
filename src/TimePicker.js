@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TimePicker } from 'antd';
 import { range, concat } from 'ramda';
 import moment from 'moment';
-import MaskedInput from 'react-maskedinput';
+import MaskedInput from 'react-text-mask';
 import cx from 'classnames';
 
 const getMaxHourRange = time => {
@@ -30,9 +30,13 @@ export default class TimePickerComponent extends Component {
         min: PropTypes.string,
         max: PropTypes.string,
         placeholder: PropTypes.string,
-        mask: PropTypes.string.isRequired,
+        mask: PropTypes.array.isRequired,
         format: PropTypes.string.isRequired
     };
+
+    state = {
+        guide: true
+    }
 
     getDisabledHours = () => {
         const { min, max, format } = this.props;
@@ -62,9 +66,12 @@ export default class TimePickerComponent extends Component {
 
     onChangeTimepicker = (moment, value) => this.setValue(value)
 
-    clearInput = () => this.setValue(null)
+    clearInput = () => this.setValue(null, false)
 
-    setValue = (value) => this.props.input.onChange(value)
+    setValue = (value, guide = true) => {
+        this.props.input.onChange(value);
+        this.setState({guide});
+    }
 
     render() {
         const { input, mask, format, placeholder } = this.props;
@@ -74,10 +81,12 @@ export default class TimePickerComponent extends Component {
                 <div className={cx({'time-input-filled': input.value })}>
                     <MaskedInput
                         {...input}
+                        onChange={this.setValue}
                         placeholder={placeholder}
                         mask={mask}
                         placeholderChar={'\u2000'}
                         className="ant-input time-masked-input"
+                        guide={this.state.guide}
                     />
                     <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} />
                 </div>

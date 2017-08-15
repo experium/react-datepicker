@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { DatePicker } from 'antd';
-import MaskedInput from 'react-maskedinput';
+import MaskedInput from 'react-text-mask';
 import cx from 'classnames';
 
 const disabledDate = (current) => current && current.valueOf() < Date.now();
@@ -10,15 +10,22 @@ class DatepickerComponent extends Component {
     static propTypes = {
         input: PropTypes.object.isRequired,
         format: PropTypes.string.isRequired,
-        mask: PropTypes.string.isRequired,
+        mask: PropTypes.array.isRequired,
         placeholder: PropTypes.string
     };
 
+    state = {
+        guide: true
+    }
+
     onChangeDatepicker = (moment, value) => this.setValue(value)
 
-    clearInput = () => this.setValue(null)
+    clearInput = () => this.setValue(null, false)
 
-    setValue = (value) => this.props.input.onChange(value)
+    setValue = (value, guide = true) => {
+        this.props.input.onChange(value);
+        this.setState({guide});
+    }
 
     render() {
         const { input, placeholder, format, mask } = this.props;
@@ -28,10 +35,12 @@ class DatepickerComponent extends Component {
                 <div className={cx({'date-input-filled': input.value })}>
                     <MaskedInput
                         {...input}
+                        onChange={this.setValue}
                         className="ant-input date-masked-input"
                         mask={mask}
                         placeholder={placeholder}
                         placeholderChar={'\u2000'}
+                        guide={this.state.guide}
                     />
                     <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
                 </div>

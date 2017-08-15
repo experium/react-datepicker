@@ -5,6 +5,9 @@ import { path, is } from 'ramda';
 
 const getValue = (value) => is(Object, value) ? path(['target', 'value'], value) : value;
 
+const dateMask = [/[0-3]/, /[0-9]/, '.', /[0-1]/, /[0-9]/, '.', /[1-2]/, /[0-9]/, /[0-9]/, /[0-9]/];
+const timeMask = [/[0-2]/, /[0-9]/, ':', /[0-6]/, /[0-9]/];
+
 class Example extends Component {
     state = {
         datepickerValue: null,
@@ -32,7 +35,7 @@ class Example extends Component {
                     <DatePicker
                         input={{onChange: this.changeDatePickerValue, value: this.state.datepickerValue}}
                         format="DD.MM.YYYY"
-                        mask="11.11.1111"
+                        mask={dateMask}
                         placeholder="DD.MM.YYYY"
                     />
                 </div>
@@ -41,7 +44,7 @@ class Example extends Component {
                     <TimePicker
                         input={{onChange: this.changeTimePickerValue, value: this.state.timepickerValue}}
                         format="HH:mm"
-                        mask="11:11"
+                        mask={timeMask}
                         placeholder="HH:mm"
                     />
                 </div>
