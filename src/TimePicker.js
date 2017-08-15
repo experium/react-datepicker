@@ -24,13 +24,14 @@ const getMinMinuteRange = (selectedHour, time) =>
 
 const getCorrectValue = (value, format) => value ? moment(value, format) : null;
 
+const timeMask = [/[0-2]/, /[0-9]/, ':', /[0-6]/, /[0-9]/];
+
 export default class TimePickerComponent extends Component {
     static propTypes = {
         input: PropTypes.object.isRequired,
         min: PropTypes.string,
         max: PropTypes.string,
         placeholder: PropTypes.string,
-        mask: PropTypes.array.isRequired,
         format: PropTypes.string.isRequired
     };
 
@@ -83,7 +84,7 @@ export default class TimePickerComponent extends Component {
                         {...input}
                         onChange={this.setValue}
                         placeholder={placeholder}
-                        mask={mask}
+                        mask={mask || timeMask}
                         placeholderChar={'\u2000'}
                         className="ant-input time-masked-input"
                         guide={this.state.guide}
