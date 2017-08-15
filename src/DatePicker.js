@@ -33,7 +33,7 @@ class DatepickerComponent extends Component {
                         placeholder={placeholder}
                         placeholderChar={'\u2000'}
                     />
-                    <span className="ant-select-selection__clear" onClick={this.clearInput} />
+                    <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
                 </div>
                 <div ref={node => this.container = node} className="date-calendar">
                     <DatePicker

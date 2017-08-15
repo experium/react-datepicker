@@ -1,0 +1,90 @@
+.date-picker .ant-calendar-picker-input {
+    visibility: hidden;
+}
+
+.date-picker .ant-calendar-input-wrap {
+    display: none;
+}
+
+.date-picker {
+    position: relative;
+    width: 231px;
+}
+
+.date-picker .date-calendar {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 231px;
+}
+
+.date-picker .date-input-filled:hover .ant-select-selection__clear {
+    opacity: 1;
+}
+
+.date-picker .ant-select-selection__clear {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    right: 29px;
+}
+
+.date-picker .ant-calendar-picker {
+    width: 100%;
+}
+
+.date-picker .ant-calendar-picker > div {
+    height: 0;
+}
+
+.ant-time-picker-panel-input-wrap {
+    display: none;
+}
+
+.ant-time-picker-panel .ant-time-picker-panel-inner {
+    left: 1px;
+}
+
+.time-picker {
+    position: relative;
+    width: 112px;
+}
+
+.time-picker .ant-time-picker-input {
+    visibility: hidden;
+    width: 112px;
+}
+
+.time-picker .ant-time-picker {
+    height: 0;
+}
+
+.time-picker .ant-time-picker-icon {
+    cursor: pointer;
+    margin-top: -20px;
+    right: -3px;
+}
+
+.time-picker .time-options {
+    position: absolute;
+}
+
+.time-picker .ant-select-selection__clear {
+    position: absolute;
+    cursor: auto;
+    right: 29px;
+}
+
+.time-picker .time-input-filled:hover .ant-select-selection__clear {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.date-picker .ant-calendar-picker-icon {
+    cursor: pointer;
+    margin-top: -21px;
+}
+
+.time-picker .ant-time-picker-input {
+    height: 0;
+}

@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build:ci": "babel src --ignore index.js --out-dir ./lib"
+    "build:ci": "babel src --ignore index.js,example --out-dir ./lib"
   },
   "author": "",
   "license": "ISC",

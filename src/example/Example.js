@@ -1,26 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import DatePicker from '../DatePicker';
 import TimePicker from '../TimePicker';
+import { path, is } from 'ramda';
 
-const Example = () => (
-    <div className="layout">
-        <div className="datepicker-wrapper">
-            <DatePicker
-                input={{onChange: (value) => console.log('change date input - ', value)}}
-                format="DD.MM.YYYY"
-                mask="11.11.1111"
-                placeholder="datepicker placeholder"
-            />
-        </div>
-        <div className="timepicker-wrapper">
-            <TimePicker
-                input={{onChange: (value) => console.log('change time input - ', value)}}
-                format="HH:mm"
-                mask="11:11"
-                placeholder="timepicker placeholder"
-            />
-        </div>
-    </div>
-);
+const getValue = (value) => is(Object, value) ? path(['target', 'value'], value) : value;
+
+class Example extends Component {
+    state = {
+        datepickerValue: null,
+        timepickerValue: null
+    }
+
+    changeDatePickerValue = (value) => {
+        this.setState({
+            datepickerValue: getValue(value)
+        });
+    }
+
+    changeTimePickerValue = (value) => {
+        this.setState({
+           timepickerValue: getValue(value)
+        });
+    }
+
+    render() {
+        return(
+            <div className="layout">
+                <h1>Demo page</h1>
+                <div className="datepicker-wrapper">
+                    <h2>DatePicker</h2>
+                    <DatePicker
+                        input={{onChange: this.changeDatePickerValue, value: this.state.datepickerValue}}
+                        format="DD.MM.YYYY"
+                        mask="11.11.1111"
+                        placeholder="DD.MM.YYYY"
+                    />
+                </div>
+                <div className="timepicker-wrapper">
+                    <h2>TimePicker</h2>
+                    <TimePicker
+                        input={{onChange: this.changeTimePickerValue, value: this.state.timepickerValue}}
+                        format="HH:mm"
+                        mask="11:11"
+                        placeholder="HH:mm"
+                    />
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Example;

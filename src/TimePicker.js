@@ -79,7 +79,7 @@ export default class TimePickerComponent extends Component {
                         placeholderChar={'\u2000'}
                         className="ant-input time-masked-input"
                     />
-                    <span className="ant-select-selection__clear" onClick={this.clearInput} />
+                    <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} />
                 </div>
                 <div className="time-options">
                     <TimePicker
