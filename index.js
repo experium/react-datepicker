@@ -1,2 +1,1 @@
-exports.DatePicker = require('/lib/DatePicker');
-exports.TimePicker = require('/lib/TimePicker');
+module.exports = require('./lib/exports');

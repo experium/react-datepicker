@@ -7,9 +7,10 @@
     "url": "https://github.com/Deadlift3008/test-react-input-pickers.git"
   },
   "main": "index.js",
+  "module": "./index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build:ci": "babel src --ignore index.js,example --out-dir ./lib"
+    "build:ci": "NODE_ENV=production babel src --ignore index.js,example --out-dir ./lib"
   },
   "author": "",
   "license": "ISC",
