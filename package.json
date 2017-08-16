@@ -1,6 +1,6 @@
 {
   "name": "react-datepickers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pickers with masked inputs",
   "repository": {
     "type": "git",
@@ -12,22 +12,30 @@
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "test:ci": "CI=true npm test a -- --runInBand",
-    "build:ci": "NODE_ENV=production babel src --ignore index.js,example,__test__ --out-dir ./lib"
+    "build:ci": "NODE_ENV=production babel src --ignore index.js,setupTests.js,example,__test__ --out-dir ./lib"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
+    "antd": "^2.12",
+    "classnames": "^2.2.5",
+    "moment": "^2.18",
+    "prop-types": "^15.5",
+    "ramda": "^0.24",
+    "react": "^15.6",
+    "react-dom": "^15.6",
+    "react-text-mask": "^5.0"
+  },
+  "devDependencies": {
     "antd": "^2.12.6",
+    "babel-cli": "^6.24.1",
     "classnames": "^2.2.5",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-text-mask": "^5.0.2"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "react-text-mask": "^5.0.2",
     "react-scripts": "^1.0.11"
   }
 }
