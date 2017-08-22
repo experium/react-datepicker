@@ -6,7 +6,8 @@ import cx from 'classnames';
 
 const disabledDate = (current) => current && current.valueOf() < Date.now();
 
-const dateMask = [/[0-3]/, /[0-9]/, '.', /[0-1]/, /[0-9]/, '.', /[1-2]/, /[0-9]/, /[0-9]/, /[0-9]/];
+const defaultDateMask = [/[0-3]/, /[0-9]/, '.', /[0-1]/, /[0-9]/, '.', /[1-2]/, /[0-9]/, /[0-9]/, /[0-9]/];
+const defaultFormat = 'DD.MM.YYYY';
 
 class DatepickerComponent extends Component {
     static propTypes = {
@@ -38,7 +39,7 @@ class DatepickerComponent extends Component {
                         {...input}
                         onChange={this.setValue}
                         className="ant-input date-masked-input"
-                        mask={mask || dateMask}
+                        mask={mask || defaultDateMask}
                         placeholder={placeholder}
                         placeholderChar={'\u2000'}
                         guide={this.state.guide}
@@ -53,7 +54,7 @@ class DatepickerComponent extends Component {
                         value={undefined}
                         disabledDate={disabledDate}
                         onChange={this.onChangeDatepicker}
-                        format={format}
+                        format={format || defaultFormat}
                     />
                 </div>
             </div>
