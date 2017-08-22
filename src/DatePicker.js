@@ -14,7 +14,7 @@ const defaultFormat = 'DD.MM.YYYY';
 class DatepickerComponent extends Component {
     static propTypes = {
         input: PropTypes.object.isRequired,
-        format: PropTypes.string.isRequired,
+        format: PropTypes.string,
         placeholder: PropTypes.string
     };
 

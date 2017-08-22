@@ -33,7 +33,7 @@ export default class TimePickerComponent extends Component {
         min: PropTypes.string,
         max: PropTypes.string,
         placeholder: PropTypes.string,
-        format: PropTypes.string.isRequired
+        format: PropTypes.string
     };
 
     state = {
