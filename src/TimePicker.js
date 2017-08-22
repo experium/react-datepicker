@@ -22,7 +22,7 @@ const getMaxMinuteRange = (selectedHour, time) =>
 const getMinMinuteRange = (selectedHour, time) =>
     selectedHour === time.hour() ? range(0, time.minute() + 1) : [];
 
-const getCorrectValue = (value, format) => value ? moment(value, format) : null;
+const getCorrectValue = (value, format) => moment(value, format).isValid() ? moment(value, format) : null;
 
 const defaultTimeMask = [/[0-2]/, /[0-9]/, ':', /[0-6]/, /[0-9]/];
 const defaultFormat = 'HH:mm';
