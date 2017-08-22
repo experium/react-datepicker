@@ -76,7 +76,8 @@ export default class TimePickerComponent extends Component {
     }
 
     render() {
-        const { input, mask, format, placeholder } = this.props;
+        const { input, mask, placeholder } = this.props;
+        const format = this.props.format || defaultFormat;
 
         return (
             <div className="time-picker">
@@ -96,7 +97,7 @@ export default class TimePickerComponent extends Component {
                     <TimePicker
                         {...input}
                         value={getCorrectValue(input.value, format)}
-                        format={format || defaultFormat}
+                        format={format}
                         disabledHours={this.getDisabledHours}
                         disabledMinutes={this.getDisabledMinutes}
                         defaultOpenValue={this.getDefaultOpenValue()}
