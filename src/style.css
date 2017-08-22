@@ -18,11 +18,11 @@
     width: 231px;
 }
 
-.date-picker .date-input-filled:hover .ant-select-selection__clear {
+.date-picker .date-input-filled:hover .date-input-clear {
     opacity: 1;
 }
 
-.date-picker .ant-select-selection__clear {
+.date-picker .date-input-clear {
     position: absolute;
     opacity: 0;
     transition: opacity 0.15s ease;
@@ -69,13 +69,13 @@
     position: absolute;
 }
 
-.time-picker .ant-select-selection__clear {
+.time-picker .time-input-clear {
     position: absolute;
     cursor: auto;
     right: 29px;
 }
 
-.time-picker .time-input-filled:hover .ant-select-selection__clear {
+.time-picker .time-input-filled:hover .time-input-clear {
     opacity: 1;
     cursor: pointer;
 }
@@ -83,6 +83,10 @@
 .date-picker .ant-calendar-picker-icon {
     cursor: pointer;
     margin-top: -21px;
+}
+
+.date-picker .date-calendar .ant-calendar-picker-clear {
+    opacity: 0 !important;
 }
 
 .time-picker .ant-time-picker-input {

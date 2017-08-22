@@ -82,27 +82,29 @@ export default class TimePickerComponent extends Component {
         return (
             <div className="time-picker">
                 <div className={cx({'time-input-filled': input.value })}>
-                    <MaskedInput
-                        {...input}
-                        onChange={this.setValue}
-                        placeholder={placeholder}
-                        mask={mask || defaultTimeMask}
-                        placeholderChar={'\u2000'}
-                        className="ant-input time-masked-input"
-                        guide={this.state.guide}
-                    />
-                    <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} />
-                </div>
-                <div className="time-options">
-                    <TimePicker
-                        {...input}
-                        value={getCorrectValue(input.value, this.format)}
-                        format={this.format}
-                        disabledHours={this.getDisabledHours}
-                        disabledMinutes={this.getDisabledMinutes}
-                        defaultOpenValue={this.getDefaultOpenValue()}
-                        onChange={this.onChangeTimepicker}
-                    />
+                    <div>
+                        <MaskedInput
+                            {...input}
+                            onChange={this.setValue}
+                            placeholder={placeholder}
+                            mask={mask || defaultTimeMask}
+                            placeholderChar={'\u2000'}
+                            className="ant-input time-masked-input"
+                            guide={this.state.guide}
+                        />
+                        <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} />
+                    </div>
+                    <div className="time-options">
+                        <TimePicker
+                            {...input}
+                            value={getCorrectValue(input.value, this.format)}
+                            format={this.format}
+                            disabledHours={this.getDisabledHours}
+                            disabledMinutes={this.getDisabledMinutes}
+                            defaultOpenValue={this.getDefaultOpenValue()}
+                            onChange={this.onChangeTimepicker}
+                        />
+                    </div>
                 </div>
             </div>
         )

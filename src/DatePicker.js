@@ -38,27 +38,29 @@ class DatepickerComponent extends Component {
         return (
             <div className="date-picker">
                 <div className={cx({'date-input-filled': input.value })}>
-                    <MaskedInput
-                        {...input}
-                        onChange={this.setValue}
-                        className="ant-input date-masked-input"
-                        mask={mask || defaultDateMask}
-                        placeholder={placeholder}
-                        placeholderChar={'\u2000'}
-                        guide={this.state.guide}
-                    />
-                    <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
-                </div>
-                <div ref={node => this.container = node} className="date-calendar">
-                    <DatePicker
-                        getCalendarContainer={() => this.container}
-                        {...this.props}
-                        {...input}
-                        value={getPickerValue(input.value, format)}
-                        disabledDate={disabledDate}
-                        onChange={this.onChangeDatepicker}
-                        format={format}
-                    />
+                    <div>
+                        <MaskedInput
+                            {...input}
+                            onChange={this.setValue}
+                            className="ant-input date-masked-input"
+                            mask={mask || defaultDateMask}
+                            placeholder={placeholder}
+                            placeholderChar={'\u2000'}
+                            guide={this.state.guide}
+                        />
+                        <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
+                    </div>
+                    <div ref={node => this.container = node} className="date-calendar">
+                        <DatePicker
+                            getCalendarContainer={() => this.container}
+                            {...this.props}
+                            {...input}
+                            value={getPickerValue(input.value, format)}
+                            disabledDate={disabledDate}
+                            onChange={this.onChangeDatepicker}
+                            format={format}
+                        />
+                    </div>
                 </div>
             </div>
         )
