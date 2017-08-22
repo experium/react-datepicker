@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { DatePicker } from 'antd';
 import MaskedInput from 'react-text-mask';
 import cx from 'classnames';
+import moment from 'moment';
 
 const disabledDate = (current) => current && current.valueOf() < Date.now();
+const getPickerValue = (value, format) => moment(value, format).isValid() ? moment(value, format) : null;
 
 const defaultDateMask = [/[0-3]/, /[0-9]/, '.', /[0-1]/, /[0-9]/, '.', /[1-2]/, /[0-9]/, /[0-9]/, /[0-9]/];
 const defaultFormat = 'DD.MM.YYYY';
@@ -30,7 +32,8 @@ class DatepickerComponent extends Component {
     }
 
     render() {
-        const { input, placeholder, format, mask } = this.props;
+        const { input, placeholder, mask } = this.props;
+        const format = this.props.format || defaultFormat;
 
         return (
             <div className="date-picker">
@@ -51,10 +54,10 @@ class DatepickerComponent extends Component {
                         getCalendarContainer={() => this.container}
                         {...this.props}
                         {...input}
-                        value={undefined}
+                        value={getPickerValue(input.value, format)}
                         disabledDate={disabledDate}
                         onChange={this.onChangeDatepicker}
-                        format={format || defaultFormat}
+                        format={format}
                     />
                 </div>
             </div>
