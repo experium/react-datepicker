@@ -41,29 +41,29 @@ export default class TimePickerComponent extends Component {
     }
 
     getDisabledHours = () => {
-        const { min, max, format } = this.props;
+        const { min, max } = this.props;
 
-        const minRange = min ? getMinHourRange(moment(min, format)) : [];
-        const maxRange = max ? getMaxHourRange(moment(max, format)) : [];
+        const minRange = min ? getMinHourRange(moment(min, this.format)) : [];
+        const maxRange = max ? getMaxHourRange(moment(max, this.format)) : [];
 
         return concat(minRange, maxRange);
     }
 
     getDisabledMinutes = h => {
-        const { min, max, format } = this.props;
+        const { min, max } = this.props;
 
-        const minRange = min ? getMinMinuteRange(h, moment(min, format)) : [];
-        const maxRange = max ? getMaxMinuteRange(h, moment(max, format)) : [];
+        const minRange = min ? getMinMinuteRange(h, moment(min, this.format)) : [];
+        const maxRange = max ? getMaxMinuteRange(h, moment(max, this.format)) : [];
 
         return concat(minRange, maxRange);
     }
 
     getDefaultOpenValue() {
-        const { min, max, format } = this.props;
+        const { min, max } = this.props;
 
-        return min ? moment(min, format).add(1, 'm') :
-               max ? moment(max, format).subtract(1, 'm') :
-               moment(0, format);
+        return min ? moment(min, this.format).add(1, 'm') :
+               max ? moment(max, this.format).subtract(1, 'm') :
+               moment(0, this.format);
     }
 
     onChangeTimepicker = (moment, value) => this.setValue(value)
@@ -77,7 +77,7 @@ export default class TimePickerComponent extends Component {
 
     render() {
         const { input, mask, placeholder } = this.props;
-        const format = this.props.format || defaultFormat;
+        this.format = this.props.format || defaultFormat;
 
         return (
             <div className="time-picker">
@@ -96,8 +96,8 @@ export default class TimePickerComponent extends Component {
                 <div className="time-options">
                     <TimePicker
                         {...input}
-                        value={getCorrectValue(input.value, format)}
-                        format={format}
+                        value={getCorrectValue(input.value, this.format)}
+                        format={this.format}
                         disabledHours={this.getDisabledHours}
                         disabledMinutes={this.getDisabledMinutes}
                         defaultOpenValue={this.getDefaultOpenValue()}
