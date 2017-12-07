@@ -55,9 +55,9 @@ class DatepickerComponent extends Component {
                     </div>
                     <div ref={node => this.container = node} className="date-calendar">
                         <DatePicker
-                            getCalendarContainer={() => this.container}
-                            {...this.props}
                             {...input}
+                            {...this.props}
+                            getCalendarContainer={() => this.container}
                             className={cx(pickerClassName, { 'disabled-picker': disabled })}
                             value={getPickerValue(input.value, format)}
                             onChange={this.onChangeDatepicker}

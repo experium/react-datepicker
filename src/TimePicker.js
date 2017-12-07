@@ -101,8 +101,8 @@ export default class TimePickerComponent extends Component {
                     <div className="time-options">
                         <TimePicker
                             {...input}
+                            {...this.props}
                             className={cx(pickerClassName, { 'disabled-picker': disabled })}
-                            disabled={disabled}
                             value={getCorrectValue(input.value, this.format)}
                             format={this.format}
                             disabledHours={this.getDisabledHours}
