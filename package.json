@@ -1,6 +1,6 @@
 {
   "name": "react-datepickers",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Pickers with masked inputs",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "moment": "^2.18",
     "prop-types": "^15.5",
     "ramda": "^0.24",
-    "react": "^15.6",
+    "react": ">=15.4.2",
     "react-dom": "^15.6",
     "react-text-mask": "^5.0"
   },
