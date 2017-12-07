@@ -14,7 +14,10 @@ class DatepickerComponent extends Component {
     static propTypes = {
         input: PropTypes.object.isRequired,
         format: PropTypes.string,
-        placeholder: PropTypes.string
+        placeholder: PropTypes.string,
+        disabled: PropTypes.bool,
+        inputClassName: PropTypes.string,
+        pickerClassName: PropTypes.string
     };
 
     state = {
@@ -31,17 +34,18 @@ class DatepickerComponent extends Component {
     }
 
     render() {
-        const { input, placeholder, mask } = this.props;
+        const { input, placeholder, mask, disabled, inputClassName, pickerClassName } = this.props;
         const format = this.props.format || defaultFormat;
 
         return (
             <div className="date-picker">
-                <div className={cx({'date-input-filled': input.value })}>
+                <div className={cx({'date-input-filled': input.value, 'disabled-input': disabled })}>
                     <div>
                         <MaskedInput
                             {...input}
+                            disabled={disabled}
                             onChange={this.setValue}
-                            className="ant-input date-masked-input"
+                            className={cx('ant-input', 'date-masked-input', inputClassName)}
                             mask={mask || defaultDateMask}
                             placeholder={placeholder}
                             placeholderChar={'\u2000'}
@@ -54,6 +58,7 @@ class DatepickerComponent extends Component {
                             getCalendarContainer={() => this.container}
                             {...this.props}
                             {...input}
+                            className={cx(pickerClassName, { 'disabled-picker': disabled })}
                             value={getPickerValue(input.value, format)}
                             onChange={this.onChangeDatepicker}
                             format={format}

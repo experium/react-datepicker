@@ -33,7 +33,10 @@ export default class TimePickerComponent extends Component {
         min: PropTypes.string,
         max: PropTypes.string,
         placeholder: PropTypes.string,
-        format: PropTypes.string
+        format: PropTypes.string,
+        disabled: PropTypes.bool,
+        inputClassName: PropTypes.string,
+        pickerClassName: PropTypes.string
     };
 
     state = {
@@ -76,20 +79,21 @@ export default class TimePickerComponent extends Component {
     }
 
     render() {
-        const { input, mask, placeholder } = this.props;
+        const { input, mask, placeholder, disabled, inputClassName, pickerClassName } = this.props;
         this.format = this.props.format || defaultFormat;
 
         return (
             <div className="time-picker">
-                <div className={cx({'time-input-filled': input.value })}>
+                <div className={cx({'time-input-filled': input.value, 'disabled-input': disabled })}>
                     <div>
                         <MaskedInput
                             {...input}
+                            disabled={disabled}
                             onChange={this.setValue}
                             placeholder={placeholder}
                             mask={mask || defaultTimeMask}
                             placeholderChar={'\u2000'}
-                            className="ant-input time-masked-input"
+                            className={cx('ant-input', 'time-masked-input', inputClassName)}
                             guide={this.state.guide}
                         />
                         <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} />
@@ -97,6 +101,8 @@ export default class TimePickerComponent extends Component {
                     <div className="time-options">
                         <TimePicker
                             {...input}
+                            className={cx(pickerClassName, { 'disabled-picker': disabled })}
+                            disabled={disabled}
                             value={getCorrectValue(input.value, this.format)}
                             format={this.format}
                             disabledHours={this.getDisabledHours}
