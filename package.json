@@ -4,7 +4,7 @@
   "description": "Pickers with masked inputs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Deadlift3008/test-react-input-pickers.git"
+    "url": "https://github.com/experium/react-datepicker.git"
   },
   "main": "index.js",
   "module": "./index.js",
@@ -17,14 +17,14 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "antd": "^2.12",
-    "classnames": "^2.2.5",
-    "moment": "^2.18",
-    "prop-types": "^15.5",
-    "ramda": "^0.24",
+    "antd": ">=2.12",
+    "classnames": ">=2.2.5",
+    "moment": ">=2.18",
+    "prop-types": ">=15.5",
+    "ramda": ">=0.24",
     "react": ">=15.4.2",
-    "react-dom": "^15.6",
-    "react-text-mask": "^5.0"
+    "react-dom": ">=15.6",
+    "react-text-mask": ">=5.0"
   },
   "devDependencies": {
     "antd": "^2.12.6",
