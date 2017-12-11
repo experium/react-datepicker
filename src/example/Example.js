@@ -43,6 +43,15 @@ class Example extends Component {
                         placeholder="HH:mm"
                     />
                 </div>
+                <div className="datepicker-wrapper">
+                    <h2>Disabled mode</h2>
+                    <DatePicker
+                        input={{onChange: this.changeDatePickerValue, value: this.state.datepickerValue}}
+                        format="DD.MM.YYYY"
+                        placeholder="DD.MM.YYYY"
+                        disabled
+                    />
+                </div>
             </div>
         );
     }

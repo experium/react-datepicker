@@ -104,3 +104,7 @@
     user-select: none;
     background-color: #f5f5f5;
 }
+
+.disabled-input .date-input-clear {
+    display: none;
+}
