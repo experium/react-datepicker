@@ -52,6 +52,15 @@ class Example extends Component {
                         disabled
                     />
                 </div>
+                <div className="timepicker-wrapper">
+                    <h2>TimePicker disabled</h2>
+                    <TimePicker
+                        input={{onChange: this.changeTimePickerValue, value: this.state.timepickerValue}}
+                        format="HH:mm"
+                        placeholder="HH:mm"
+                        disabled={true}
+                    />
+                </div>
             </div>
         );
     }
