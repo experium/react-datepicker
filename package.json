@@ -1,6 +1,6 @@
 {
   "name": "react-datepickers",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Pickers with masked inputs",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "antd": "^2.12",
+    "antd": "^3.1.3",
     "classnames": ">=2.2.5",
     "moment": "^2.18",
     "prop-types": "^15.5",
@@ -27,7 +27,7 @@
     "react-text-mask": "^5.0"
   },
   "devDependencies": {
-    "antd": "^2.13.11",
+    "antd": "^3.1.3",
     "babel-cli": "^6.24.1",
     "classnames": "^2.2.5",
     "moment": "^2.18.1",
@@ -35,7 +35,7 @@
     "ramda": "^0.24.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-text-mask": "^5.0.2",
-    "react-scripts": "^1.0.11"
+    "react-scripts": "^1.0.11",
+    "react-text-mask": "^5.0.2"
   }
 }
