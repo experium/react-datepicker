@@ -24,13 +24,19 @@ class DatepickerComponent extends Component {
         guide: true
     }
 
+    componentDidUpdate() {
+        if (!this.state.guide) {
+            this.setState({ guide: true });
+        }
+    }
+
     onChangeDatepicker = (moment, value) => this.setValue(value)
 
     clearInput = () => this.setValue(null, false)
 
     setValue = (value, guide = true) => {
         this.props.input.onChange(value);
-        this.setState({guide});
+        this.setState({ guide });
     }
 
     render() {
@@ -49,6 +55,7 @@ class DatepickerComponent extends Component {
                             mask={mask || defaultDateMask}
                             placeholder={placeholder}
                             placeholderChar={'\u2000'}
+                            keepCharPositions={false}
                             guide={this.state.guide}
                         />
                         <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
