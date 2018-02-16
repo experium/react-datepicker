@@ -22,23 +22,23 @@ class DatepickerComponent extends Component {
     };
 
     state = {
-        guide: true
+        guide: false
     }
 
     componentDidUpdate() {
-        if (!this.state.guide) {
-            this.setState({ guide: true });
+        if (this.props.input.value) {
+            !this.state.guide && this.setState({ guide: true });
+        } else {
+            this.state.guide && this.setState({ guide: false });
         }
     }
 
     onChangeDatepicker = (moment, value) => {
         this.setValue(value);
-        this.setState({ guide: true });
     }
 
     clearInput = () => {
         this.setValue(null);
-        this.setState({ guide: false });
     }
 
     setValue = (value) => {
