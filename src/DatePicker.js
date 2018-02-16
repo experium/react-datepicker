@@ -17,7 +17,8 @@ class DatepickerComponent extends Component {
         placeholder: PropTypes.string,
         disabled: PropTypes.bool,
         inputClassName: PropTypes.string,
-        pickerClassName: PropTypes.string
+        pickerClassName: PropTypes.string,
+        type: PropTypes.string,
     };
 
     state = {
@@ -30,17 +31,22 @@ class DatepickerComponent extends Component {
         }
     }
 
-    onChangeDatepicker = (moment, value) => this.setValue(value)
+    onChangeDatepicker = (moment, value) => {
+        this.setValue(value);
+        this.setState({ guide: true });
+    }
 
-    clearInput = () => this.setValue(null, false)
+    clearInput = () => {
+        this.setValue(null);
+        this.setState({ guide: false });
+    }
 
-    setValue = (value, guide = true) => {
+    setValue = (value) => {
         this.props.input.onChange(value);
-        this.setState({ guide });
     }
 
     render() {
-        const { input, placeholder, mask, disabled, inputClassName, pickerClassName } = this.props;
+        const { input, type, placeholder, mask, disabled, inputClassName, pickerClassName } = this.props;
         const format = this.props.format || defaultFormat;
 
         return (
@@ -49,6 +55,7 @@ class DatepickerComponent extends Component {
                     <div>
                         <MaskedInput
                             {...input}
+                            type={type}
                             disabled={disabled}
                             onChange={this.setValue}
                             className={cx('ant-input', 'date-masked-input', inputClassName)}
