@@ -19,6 +19,7 @@ class DatepickerComponent extends Component {
         inputClassName: PropTypes.string,
         pickerClassName: PropTypes.string,
         type: PropTypes.string,
+        allowClear: PropTypes.bool
     };
 
     state = {
@@ -46,7 +47,7 @@ class DatepickerComponent extends Component {
     }
 
     render() {
-        const { input, type, placeholder, mask, disabled, inputClassName, pickerClassName } = this.props;
+        const { input, type, placeholder, mask, disabled, inputClassName, pickerClassName, allowClear } = this.props;
         const format = this.props.format || defaultFormat;
 
         return (
@@ -65,7 +66,7 @@ class DatepickerComponent extends Component {
                             keepCharPositions={false}
                             guide={this.state.guide}
                         />
-                        <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
+                        { allowClear && <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} /> }
                     </div>
                     <div ref={node => this.container = node} className="date-calendar">
                         <DatePicker
