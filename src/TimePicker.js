@@ -36,7 +36,8 @@ export default class TimePickerComponent extends Component {
         format: PropTypes.string,
         disabled: PropTypes.bool,
         inputClassName: PropTypes.string,
-        pickerClassName: PropTypes.string
+        pickerClassName: PropTypes.string,
+        allowClear: PropTypes.bool
     };
 
     state = {
@@ -79,7 +80,7 @@ export default class TimePickerComponent extends Component {
     }
 
     render() {
-        const { input, mask, placeholder, disabled, inputClassName, pickerClassName } = this.props;
+        const { input, mask, placeholder, disabled, inputClassName, pickerClassName, allowClear } = this.props;
         this.format = this.props.format || defaultFormat;
 
         return (
@@ -96,7 +97,7 @@ export default class TimePickerComponent extends Component {
                             className={cx('ant-input', 'time-masked-input', inputClassName)}
                             guide={this.state.guide}
                         />
-                        <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} />
+                        { allowClear && <span className="ant-select-selection__clear time-input-clear" onClick={this.clearInput} /> }
                     </div>
                     <div className="time-options">
                         <TimePicker
