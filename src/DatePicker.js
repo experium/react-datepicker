@@ -11,6 +11,11 @@ const defaultDateMask = [/[0-3]/, /[0-9]/, '.', /[0-1]/, /[0-9]/, '.', /[1-2]/, 
 const defaultFormat = 'DD.MM.YYYY';
 
 class DatepickerComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.container = React.createRef();
+    }
+
     static propTypes = {
         input: PropTypes.object.isRequired,
         format: PropTypes.string,
@@ -67,11 +72,11 @@ class DatepickerComponent extends Component {
                         />
                         <span className="ant-select-selection__clear date-input-clear" onClick={this.clearInput} />
                     </div>
-                    <div ref={node => this.container = node} className="date-calendar">
+                    <div ref={this.container} className="date-calendar">
                         <DatePicker
                             {...input}
                             {...this.props}
-                            getCalendarContainer={() => this.container}
+                            getCalendarContainer={() => this.container.current}
                             className={cx(pickerClassName, { 'disabled-picker': disabled })}
                             value={getPickerValue(input.value, format)}
                             onChange={this.onChangeDatepicker}
