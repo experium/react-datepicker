@@ -18,3 +18,15 @@ jobs:
         api_key: $NPM_API_KEY
         on:
           branch: master
+    - stage: deploy gh pages
+      before_deploy:
+      - yarn install
+      - yarn build
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: "$GITHUB_TOKEN"
+        keep-history: true
+        local-dir: /build
+        on:
+          branch: master

@@ -9,12 +9,14 @@
 .date-picker {
     position: relative;
     width: 231px;
+    line-height: 32px;
 }
 
 .date-picker .date-calendar {
-    position: absolute;
+    position: relative;
     left: 0;
-    height: 1px;
+    height: 0px;
+    top: 6px;
     width: 231px;
 }
 
@@ -63,12 +65,14 @@
 
 .time-picker .ant-time-picker-icon {
     cursor: pointer;
-    margin-top: -23px;
+    margin-top: -29px;
     right: 24px;
 }
 
 .time-picker .time-options {
-    position: absolute;
+    position: relative;
+    top: 6px;
+    height: 0;
 }
 
 .time-picker .time-input-clear {
@@ -84,7 +88,7 @@
 
 .date-picker .date-calendar .ant-calendar-picker-icon {
     cursor: pointer;
-    margin-top: -21px;
+    margin-top: -30px;
 }
 
 .date-picker .date-calendar .ant-calendar-picker-clear {
@@ -93,6 +97,7 @@
 
 .time-picker .ant-time-picker-input {
     height: 0;
+    padding: 0;
 }
 
 .disabled-input * {
