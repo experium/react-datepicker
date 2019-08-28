@@ -6,6 +6,11 @@ script: yarn test:ci
 
 jobs:
   include:
+    - stage: test build
+      script: yarn build
+      name: "Test build for gh pages"
+    - script: yarn build:ci
+      name: "Test build lib"
     - stage: npm release
       node_js: stable
       before_deploy:
