@@ -110,6 +110,7 @@ export default class TimePickerComponent extends Component {
                             disabledMinutes={this.getDisabledMinutes}
                             defaultOpenValue={this.getDefaultOpenValue()}
                             onChange={this.onChangeTimepicker}
+                            popupClassName='time-picker-popup'
                         />
                     </div>
                 </div>
