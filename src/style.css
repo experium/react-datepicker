@@ -13,40 +13,69 @@
 }
 
 .date-picker .date-calendar {
-    position: relative;
+    position: static;
     left: 0;
     height: 0px;
     top: 6px;
     width: 231px;
 }
 
-.date-picker .date-input-filled:hover .date-input-clear {
-    cursor: pointer;
-    opacity: 1;
-}
-
-.date-picker .date-input-clear {
+.date-picker .date-calendar .ant-picker {
+    height: 32px;
+    width: 23px;
     position: absolute;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    right: 29px;
-    cursor: auto;
+    right: 0px;
+    top: 0px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
 }
 
-.date-picker .ant-calendar-picker {
+.date-picker .date-calendar .ant-picker:hover,
+.date-picker .date-calendar .ant-picker.ant-picker-focused {
+    border-color: #d9d9d9;
+}
+
+.date-picker .date-calendar .ant-picker .ant-picker-input {
     width: 100%;
 }
 
-.date-picker .ant-calendar-picker > div {
-    height: 0;
-}
-
-.ant-time-picker-panel-input-wrap {
+.date-picker .date-calendar .ant-picker .ant-picker-input input {
     display: none;
 }
 
-.ant-time-picker-panel .ant-time-picker-panel-inner {
-    left: 1px;
+.date-picker .date-calendar .ant-picker .ant-picker-input .ant-picker-clear,
+.date-picker .date-calendar .ant-picker .ant-picker-input .ant-picker-suffix {
+    pointer-events: initial;
+    cursor: pointer;
+}
+
+.date-picker .date-calendar .ant-picker .ant-picker-input .ant-picker-clear {
+    right: 5px;
+}
+
+.ant-picker-dropdown {
+    width: 231px;
+}
+
+.ant-picker-dropdown .ant-picker-panel-container {
+    transform: translateX(-208px);
+}
+
+.ant-picker-dropdown .ant-picker-panel-container .ant-picker-content {
+    width: 231px;
+}
+
+.ant-picker-dropdown .ant-picker-panel-container .ant-picker-content thead tr th {
+    width: 32px;
+}
+
+.ant-picker-dropdown .ant-picker-date-panel .ant-picker-body {
+    padding: 0;
+}
+
+.ant-picker-dropdown .ant-picker-date-panel .ant-picker-header {
+    width: 231px;
 }
 
 .time-picker {
@@ -59,45 +88,54 @@
     width: 112px;
 }
 
-.time-picker .ant-time-picker {
-    height: 0;
-}
-
-.time-picker .ant-time-picker-icon {
-    cursor: pointer;
-    margin-top: -29px;
-    right: 24px;
-}
-
 .time-picker .time-options {
-    position: relative;
+    position: static;
     top: 6px;
     height: 0;
 }
 
-.time-picker .time-input-clear {
-    position: absolute;
-    cursor: auto;
-    right: 29px;
-}
-
-.time-picker .time-input-filled:hover .time-input-clear {
-    opacity: 1;
-    cursor: pointer;
-}
-
-.date-picker .date-calendar .ant-calendar-picker-icon {
-    cursor: pointer;
-    margin-top: -30px;
-}
-
-.date-picker .date-calendar .ant-calendar-picker-clear {
-    opacity: 0 !important;
-}
-
-.time-picker .ant-time-picker-input {
-    height: 0;
+.time-picker .time-options .ant-picker {
     padding: 0;
+    height: 32px;
+    width: 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.time-picker .time-options .ant-picker .ant-picker-input input {
+    display: none;
+}
+
+.time-picker .time-options .ant-picker .ant-picker-input .ant-picker-suffix {
+    pointer-events: initial;
+    cursor: pointer;
+}
+
+.time-picker .time-options .ant-picker .ant-picker-input .ant-picker-clear {
+    right: 6px;
+}
+
+.time-picker-popup {
+    width: 112px;
+}
+
+.time-picker-popup .ant-picker-panel-container {
+    transform: translateX(-88px);
+}
+
+.time-picker-popup .ant-picker-panel-container .ant-picker-content {
+    width: 112px;
+}
+
+.time-picker-popup .ant-picker-panel-container .ant-picker-panel .ant-picker-time-panel {
+    padding: 0;
+}
+
+.time-picker-popup .ant-picker-panel-container .ant-picker-panel .ant-picker-footer {
+    display: none;
 }
 
 .disabled-input * {
@@ -112,6 +150,7 @@
 }
 
 .disabled-input .date-input-clear,
-.disabled-input .time-input-clear{
+.disabled-input .time-input-clear,
+.disabled-input .ant-picker-clear {
     display: none;
 }
